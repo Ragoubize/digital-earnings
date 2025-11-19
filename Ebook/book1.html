@@ -5,45 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download: Free AI Tools - Digital Earnings</title>
     
-    <!-- Import Font -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* === GLOBAL STYLES (Nafs Index) === */
+        /* === GLOBAL STYLES === */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: #0a0a0a; color: #ffffff; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* === NAVBAR === */
+        /* === NAVBAR (Updated) === */
         header {
-            padding: 20px;
-            text-align: center;
             background-color: #000000;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #222;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 15px 20px;
         }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
             background: linear-gradient(90deg, #FFD700, #FDB931, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
         }
 
-        /* === BOOK DETAIL CONTAINER === */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* === BOOK DETAIL STYLES (Your Original Design) === */
         .detail-container {
-            max-width: 700px; /* Sgher mn index bach yb9a focus */
+            max-width: 700px;
             margin: 40px auto;
             padding: 20px;
             text-align: center;
         }
 
-        /* === BOOK COVER HERO === */
         .hero-section {
             margin-bottom: 30px;
             position: relative;
@@ -51,9 +72,9 @@
         
         .large-cover {
             width: 100%;
-            max-width: 350px; /* Hada 9yas mzyan l ktab */
+            max-width: 350px;
             border-radius: 15px;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15); /* Glow sfar */
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
             border: 2px solid #333;
             transition: transform 0.3s;
         }
@@ -63,7 +84,6 @@
             border-color: #FFD700;
         }
 
-        /* === TITLE & TEXT === */
         .book-title {
             font-size: 2rem;
             margin: 20px 0 10px;
@@ -78,13 +98,12 @@
             margin-bottom: 20px;
         }
 
-        /* === SUMMARY BOX (Warm Up) === */
         .summary-box {
             background: #161616;
             border: 1px solid #333;
             border-radius: 12px;
             padding: 25px;
-            text-align: left; /* Text mqad 3la lisr */
+            text-align: left;
             margin-bottom: 30px;
         }
 
@@ -113,10 +132,10 @@
             color: #FFD700;
         }
 
-        /* === DOWNLOAD BUTTON (CPA LINK HERE) === */
+        /* === DOWNLOAD BUTTON === */
         .download-area {
             position: sticky;
-            bottom: 20px; /* Bach yb9a ban l user f telephon */
+            bottom: 20px;
             z-index: 90;
             padding: 10px;
         }
@@ -144,17 +163,21 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
         }
 
-        /* === FOOTER === */
+        /* === FOOTER (Updated) === */
         footer {
+            background: #000;
+            border-top: 1px solid #222;
             text-align: center;
             padding: 30px 20px;
             margin-top: 20px;
-            color: #555;
-            font-size: 0.8rem;
-            border-top: 1px solid #222;
         }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #777; margin: 0 10px; font-size: 0.85rem; }
+        .footer-links a:hover { color: #FFD700; }
 
+        /* Mobile Fixes */
         @media (max-width: 600px) {
+            .nav-container { flex-direction: column; gap: 15px; }
             .book-title { font-size: 1.5rem; }
             .summary-box { padding: 15px; }
         }
@@ -162,24 +185,32 @@
 </head>
 <body>
 
-    <!-- Navbar (Nafs d Index) -->
+    <!-- NAVBAR (Updated with ../ links) -->
     <header>
-        <!-- Logo yreddek l index ila bghiti -->
-        <a href="../index.html" class="logo">Digital Earnings</a>
+        <div class="nav-container">
+            <div class="logo">Digital Earnings</div>
+            <nav class="nav-links">
+                <!-- Notice the ../ before filenames because we are inside 'Ebook' folder -->
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../privacy.html">Privacy</a>
+            </nav>
+        </div>
     </header>
 
     <main class="detail-container">
         
         <!-- Hero Section -->
         <div class="hero-section">
-            <!-- Baddel src b tswira dyal cover l book li 3titini -->
-            <img src="/Ebook/Free AI Tools That Make You $100 Per Day.png" alt="AI 100$ Day Cover" class="large-cover">
+            <!-- Image Path Note: If image is in same folder as html, just use filename -->
+            <img src="Free AI Tools That Make You $100 Per Day.png" alt="AI 100$ Day Cover" class="large-cover">
             
             <h1 class="book-title">Free AI Tools That Make You $100 Per Day</h1>
             <p class="book-subtitle">The "Laziness is Intelligence" Blueprint</p>
         </div>
 
-        <!-- Summary Box (Tsakhin d User - Khdito mn PDF) -->
+        <!-- Summary Box -->
         <div class="summary-box">
             <h3>🔒 What's Inside This Exclusive Guide:</h3>
             <ul class="summary-list">
@@ -193,10 +224,9 @@
             </p>
         </div>
 
-        <!-- Download Button (Content Locker) -->
+        <!-- Download Button -->
         <div class="download-area">
-            <!-- HNA FIN ADIR LIEN DYAL CONTENT LOCKER DYALK -->
-            <!-- Matalan: onclick="call_locker();" ola href="lien_cpabuild" -->
+            <!-- CPA Link Here -->
             <a href="https://drive.google.com/file/d/1OK4v141MvgR2qZLcCbZ29dQ39LVkmfou/view?usp=drive_link" class="download-btn">
                 Download Guide Now ⬇
             </a>
@@ -204,8 +234,13 @@
 
     </main>
 
+    <!-- FOOTER (Updated with ../ links) -->
     <footer>
-        &copy; 2024 Digital Earnings AI. All rights reserved.
+        <div>&copy; 2025 Digital Earnings AI. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="../privacy.html">Privacy Policy</a> | 
+            <a href="../contact.html">Contact Us</a>
+        </div>
     </footer>
 
 </body>
