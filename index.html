@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Earnings - Premium Ebooks</title>
+    
+    <!-- Import font zwina (Poppins) bach yban site prof -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === RESET & GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a; /* Khel bared chwiya machi 000 bach yban n9i */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* === NAVBAR === */
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            /* Gradient Effect: Dahbi mhlata m3a chwiya d lbaida */
+            background: linear-gradient(90deg, #FFD700, #FDB931, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        /* === MAIN CONTAINER === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* === BOOK GRID (RESPONSIVE) === */
+        .books-grid {
+            display: grid;
+            /* Hada howa sir dyal responsive: */
+            /* Kaydir 1 f telephon, o 2+ ila kan ecran kbir automatic */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 20px;
+        }
+
+        /* === BOOK CARD === */
+        .book-card {
+            background: #161616;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px); /* Animation mli doz souri */
+            border-color: #FFD700; /* Ywali lframe dahbi */
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .book-cover {
+            width: 100%;
+            aspect-ratio: 2/3; /* Bach tb9a tswira 3la chkal ktab */
+            object-fit: cover;
+            background-color: #222; /* Ila matlach tswira yban gris */
+        }
+
+        .book-info {
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .book-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #FFD700, #d4af37);
+            color: #000;
+            padding: 8px 0;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: auto;
+            text-transform: uppercase;
+        }
+
+        /* === FOOTER (Minimalist) === */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* === MEDIA QUERIES (Zidna tahsinat l telephon sghir) === */
+        @media (max-width: 400px) {
+            .books-grid {
+                grid-template-columns: 1fr; /* 1 Column f sghir bzaf */
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Digital Earnings</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <div class="intro-text">
+            <p>Best AI Prompts & Tools to Make Money.</p>
+            <p>Unlock Premium Knowledge Below.</p>
+        </div>
+
+        <!-- Hna fin ghadi tht les livres dyalk -->
+        <div class="books-grid">
+
+            <!-- BOOK 1 EXEMPLE -->
+            <!-- Badel href b lien dyal html li f dossier Ebook -->
+            <a href="/Ebook/book1.html" class="book-card">
+                <!-- Badel src b tswira dyal ktab cover -->
+                <img src="/Ebook/Free AI Tools That Make You $100 Per Day.png" alt="ChatGPT Guide" class="book-cover">
+                <div class="book-info">
+                    <h3 class="book-title">Free AI Tools That Make You $100 Per Day</h3>
+                    <div class="cta-button">Get Access</div>
+                </div>
+            </a>
+
+            <!-- BOOK 2 EXEMPLE -->
+            <a href="./Ebook/midjourney-art.html" class="book-card">
+                <img src="https://placehold.co/300x450/222/FFD700?text=AI+Art+Mastery" alt="AI Art" class="book-cover">
+                <div class="book-info">
+                    <h3 class="book-title">Midjourney Art Secrets</h3>
+                    <div class="cta-button">Get Access</div>
+                </div>
+            </a>
+
+            <!-- BOOK 3 EXEMPLE -->
+            <a href="./Ebook/passive-income.html" class="book-card">
+                <img src="https://placehold.co/300x450/222/FFD700?text=Passive+Income" alt="Passive Income" class="book-cover">
+                <div class="book-info">
+                    <h3 class="book-title">AI Passive Income</h3>
+                    <div class="cta-button">Get Access</div>
+                </div>
+            </a>
+
+            <!-- Zid copier coller nafs l code 'book-card' bach tzid ktoba khrin -->
+
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Digital Earnings AI
+    </footer>
+
+</body>
+</html>
