@@ -3,204 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Earnings - Premium Ebooks</title>
+    <title>Digital Earnings - AI Tools & Ebooks</title>
     
-    <!-- Import font zwina (Poppins) bach yban site prof -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons (Search Icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* === RESET & GLOBAL STYLES === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        /* === RESET & GLOBAL === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0a0a0a; color: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-        body {
-            background-color: #0a0a0a; /* Khel bared chwiya machi 000 bach yban n9i */
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* === NAVBAR === */
+        /* === NAVBAR (Logo Left, Links Right) === */
         header {
-            padding: 20px;
-            text-align: center;
             background-color: #000000;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #222;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
-            /* Gradient Effect: Dahbi mhlata m3a chwiya d lbaida */
             background: linear-gradient(90deg, #FFD700, #FDB931, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
         }
 
-        /* === MAIN CONTAINER === */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700;
+        }
+
+        /* === HERO & SEARCH === */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
+        }
+
+        .hero-text {
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .search-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px; /* Space for icon */
+            border-radius: 30px;
+            border: 1px solid #333;
+            background-color: #161616;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #FFD700;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+        }
+
+        /* === BOOKS GRID (2 Per Row on Mobile) === */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .intro-text {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-
-        /* === BOOK GRID (RESPONSIVE) === */
         .books-grid {
             display: grid;
-            /* Hada howa sir dyal responsive: */
-            /* Kaydir 1 f telephon, o 2+ ila kan ecran kbir automatic */
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            /* PC: Auto fill */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
 
-        /* === BOOK CARD === */
         .book-card {
             background: #161616;
             border: 1px solid #333;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .book-card:hover {
-            transform: translateY(-5px); /* Animation mli doz souri */
-            border-color: #FFD700; /* Ywali lframe dahbi */
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #FFD700;
+        }
+
+        .book-cover-container {
+            width: 100%;
+            position: relative;
+            padding-top: 140%; /* Aspect Ratio 1:1.4 */
+            background: #222;
+            overflow: hidden;
         }
 
         .book-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            aspect-ratio: 2/3; /* Bach tb9a tswira 3la chkal ktab */
+            height: 100%;
             object-fit: cover;
-            background-color: #222; /* Ila matlach tswira yban gris */
         }
 
         .book-info {
-            padding: 15px;
+            padding: 12px;
             text-align: center;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            justify-content: space-between;
         }
 
         .book-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #fff;
+            /* Limit text to 2 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #FFD700, #d4af37);
+            background: #FFD700;
             color: #000;
-            padding: 8px 0;
-            border-radius: 6px;
+            padding: 6px 0;
+            border-radius: 4px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-top: auto;
             text-transform: uppercase;
+            display: block;
         }
 
-        /* === FOOTER (Minimalist) === */
+        /* === FOOTER === */
         footer {
+            background: #000;
+            border-top: 1px solid #222;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #555;
-            font-size: 0.8rem;
+            padding: 30px 20px;
+            margin-top: 50px;
         }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #777; margin: 0 10px; font-size: 0.85rem; }
+        .footer-links a:hover { color: #FFD700; }
 
-        /* === MEDIA QUERIES (Zidna tahsinat l telephon sghir) === */
-        @media (max-width: 400px) {
+        /* === RESPONSIVE (Mobile Tweaks) === */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             .books-grid {
-                grid-template-columns: 1fr; /* 1 Column f sghir bzaf */
+                /* Mobile: STRICTLY 2 Columns */
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px; /* Sgharna l gap */
             }
-            .logo {
-                font-size: 1.5rem;
-            }
+
+            .book-title { font-size: 0.8rem; }
+            .book-info { padding: 8px; }
+            .hero-section { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <header>
-        <div class="logo">Digital Earnings</div>
+        <div class="nav-container">
+            <div class="logo">Digital Earnings</div>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
+    <!-- HERO & SEARCH -->
+    <div class="hero-section">
+        <p class="hero-text">Best AI Prompts & Tools to Make Money online.</p>
         
-        <div class="intro-text">
-            <p>Best AI Prompts & Tools to Make Money.</p>
-            <p>Unlock Premium Knowledge Below.</p>
+        <div class="search-wrapper">
+            <!-- Input id="searchInput" bach nsta3mloh f JS -->
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for a guide...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
         </div>
+    </div>
 
-        <!-- Hna fin ghadi tht les livres dyalk -->
-        <div class="books-grid">
+    <!-- BOOKS CONTENT -->
+    <main class="container">
+        <!-- Zdt id="booksContainer" bach nfiltriw fih -->
+        <div class="books-grid" id="booksContainer">
 
-            <!-- BOOK 1 EXEMPLE -->
-            <!-- Badel href b lien dyal html li f dossier Ebook -->
-            <a href="/Ebook/book1.html" class="book-card">
-                <!-- Badel src b tswira dyal ktab cover -->
-                <img src="/Ebook/Free AI Tools That Make You $100 Per Day.png" alt="ChatGPT Guide" class="book-cover">
+            <!-- BOOK 1 -->
+            <a href="./Ebook/book1.html" class="book-card">
+                <div class="book-cover-container">
+                    <img src="/Ebook/Free AI Tools That Make You $100 Per Day.png" alt="AI Tools" class="book-cover">
+                </div>
                 <div class="book-info">
                     <h3 class="book-title">Free AI Tools That Make You $100 Per Day</h3>
-                    <div class="cta-button">Get Access</div>
+                    <span class="cta-button">Get Access</span>
                 </div>
             </a>
 
-            <!-- BOOK 2 EXEMPLE -->
-            <a href="./Ebook/midjourney-art.html" class="book-card">
-                <img src="https://placehold.co/300x450/222/FFD700?text=AI+Art+Mastery" alt="AI Art" class="book-cover">
+            <!-- BOOK 2 (Exemple) -->
+            <a href="#" class="book-card">
+                <div class="book-cover-container">
+                    <img src="https://placehold.co/350x500/333/fff?text=Midjourney" alt="Midjourney" class="book-cover">
+                </div>
                 <div class="book-info">
-                    <h3 class="book-title">Midjourney Art Secrets</h3>
-                    <div class="cta-button">Get Access</div>
+                    <h3 class="book-title">Midjourney Art Mastery Guide</h3>
+                    <span class="cta-button">Get Access</span>
                 </div>
             </a>
 
-            <!-- BOOK 3 EXEMPLE -->
-            <a href="./Ebook/passive-income.html" class="book-card">
-                <img src="https://placehold.co/300x450/222/FFD700?text=Passive+Income" alt="Passive Income" class="book-cover">
+             <!-- BOOK 3 (Exemple) -->
+             <a href="#" class="book-card">
+                <div class="book-cover-container">
+                    <img src="https://placehold.co/350x500/444/fff?text=ChatGPT" alt="ChatGPT" class="book-cover">
+                </div>
                 <div class="book-info">
-                    <h3 class="book-title">AI Passive Income</h3>
-                    <div class="cta-button">Get Access</div>
+                    <h3 class="book-title">ChatGPT Prompts for Business</h3>
+                    <span class="cta-button">Get Access</span>
                 </div>
             </a>
 
-            <!-- Zid copier coller nafs l code 'book-card' bach tzid ktoba khrin -->
+             <!-- BOOK 4 (Exemple - Bach tchoof 2 f star) -->
+             <a href="#" class="book-card">
+                <div class="book-cover-container">
+                    <img src="https://placehold.co/350x500/555/fff?text=Passive" alt="Passive" class="book-cover">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Passive Income Strategies 2025</h3>
+                    <span class="cta-button">Get Access</span>
+                </div>
+            </a>
 
         </div>
+        
+        <!-- Message ila mal9a walo f recherche -->
+        <p id="noResults" style="text-align:center; display:none; margin-top:20px; color:#777;">No guides found.</p>
+
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        &copy; 2024 Digital Earnings AI
+        <div>&copy; 2025 Digital Earnings AI.</div>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="contact.html">Contact Us</a>
+        </div>
     </footer>
+
+    <!-- JAVASCRIPT SEARCH LOGIC -->
+    <script>
+        // Hada script basit kay9alb 3la ktoba bla ma ycharji page
+        const searchInput = document.getElementById('searchInput');
+        const bookCards = document.querySelectorAll('.book-card');
+        const noResultsMsg = document.getElementById('noResults');
+
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            let hasVisibleBooks = false;
+
+            bookCards.forEach(card => {
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+                if(title.includes(term)) {
+                    card.style.display = "flex"; // Show
+                    hasVisibleBooks = true;
+                } else {
+                    card.style.display = "none"; // Hide
+                }
+            });
+
+            // Ila mal9a walo bayen msg
+            if(hasVisibleBooks) {
+                noResultsMsg.style.display = 'none';
+            } else {
+                noResultsMsg.style.display = 'block';
+            }
+        });
+    </script>
 
 </body>
 </html>
